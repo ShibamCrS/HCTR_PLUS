@@ -263,7 +263,7 @@ void prp_encrypt(prp_ctx     * restrict ctx,
     V = HT1;
     Ll = Ll_SAVE;
     Lr = Lr_SAVE;
-    zhash(ctp + 2, ctx->round_keys_h_prime_512, ctx->round_keys_prime_h, (pt_len - 2*16), &U, &V, &Ll, &Lr);
+    zhash(ctp + 2, ctx->round_keys_h_prime_512, ctx->round_keys_h_prime, (pt_len - 2*16), &U, &V, &Ll, &Lr);
     
     //Handel Length 
     S = XOR(Ll, LEN);
