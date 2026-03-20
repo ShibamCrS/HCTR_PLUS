@@ -18,7 +18,7 @@ int prp_init(prp_ctx *ctx, const void *mkey){
         round_keys4[i] = _mm512_broadcast_i32x4(round_keys[i]);
 
     //At first derive 4 keys in parallel
-    BLOCK States[4], S1, T, t;
+    BLOCK States[4], S1, S2, T, t;
     T = FOUR;
     BLOCK4 RT[8];
     RT[0] = _mm512_broadcast_i32x4(T);
