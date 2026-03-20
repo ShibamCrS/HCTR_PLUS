@@ -212,7 +212,7 @@ void prp_encrypt(prp_ctx     * restrict ctx,
     V = ZERO();
 
 /* ---------------------------- Process Tweaks -------------------------*/
-    zhash(tkp, ctx->round_keys_h_512, ctx->round_keys_h, tk_len, &U, &V, &Ll, &Lr);
+    zhash(tkp, ctx->round_keys_h_512, ctx->round_keys_h_prime, tk_len, &U, &V, &Ll, &Lr);
 
     BLOCK HT0 = U;
     BLOCK HT1 = V;
@@ -220,7 +220,7 @@ void prp_encrypt(prp_ctx     * restrict ctx,
     BLOCK Lr_SAVE = Lr;
 
 /*-----------------------Process Plaintexts----------------------------*/
-    zhash(ptp+2, ctx->round_keys_h_512, ctx->round_keys_h, (pt_len - 2*16), &U, &V, &Ll, &Lr);
+    zhash(ptp+2, ctx->round_keys_h_512, ctx->round_keys_h_prime, (pt_len - 2*16), &U, &V, &Ll, &Lr);
 
     //Handel Length
     S = XOR(Ll, LEN);

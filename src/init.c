@@ -50,9 +50,16 @@ int prp_init(prp_ctx *ctx, const void *mkey){
     TAES(S1, round_keys, T, t);
     DEOXYS_128_256_setup_key((unsigned char *)(&S1),  ctx->round_keys_c);
 
+    //Now derive k_h_prime (required in ZHCTR+)
+    S2 = _mm_set_epi32(0,0,0,6);
+    T = FOUR;
+    TAES(S2, round_keys, T, t);
+    DEOXYS_128_256_setup_key((unsigned char *)(&S2),  ctx->round_keys_h_prime);
+
     for(int i=0; i<=DEOXYS_BC_128_256_NUM_ROUNDS; i++){
         ctx->round_keys_h_512[i] = _mm512_broadcast_i64x2(ctx->round_keys_h[i]);
         ctx->round_keys_c_512[i] = _mm512_broadcast_i64x2(ctx->round_keys_c[i]);
+        ctx->round_keys_h_prime_512[i] = _mm512_broadcast_i64x2(ctx->round_keys_h_prime[i]);
     }
 
     return 1;

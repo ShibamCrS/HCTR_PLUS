@@ -5,9 +5,11 @@ struct _prp_ctx {
     BLOCK round_keys_2 [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
     BLOCK round_keys_3 [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
     BLOCK round_keys_h [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
+    BLOCK round_keys_h_prime [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
     BLOCK round_keys_c [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
     BLOCK4 round_keys_h_512 [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
     BLOCK4 round_keys_c_512 [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
+    BLOCK round_keys_h_prime_512 [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
 
     BLOCK round_keys_d_1 [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
     BLOCK round_keys_d_2 [DEOXYS_BC_128_256_NUM_ROUND_KEYS];
